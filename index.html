@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Love Note 🧸💗</title>
+
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100svh;
+    padding: 35px 18px;
+    display: grid;
+    place-items: center;
+    overflow-x: hidden;
+    font-family: "Trebuchet MS", sans-serif;
+    background: radial-gradient(circle at top, #fff8fb, #ffd7e6);
+    color: #713d50;
+  }
+
+  .background {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .floating {
+    position: absolute;
+    bottom: -60px;
+    animation: float 12s linear infinite;
+        opacity: 0;
+    }
+  }
+
+  .card {
+    position: relative;
+    width: min(100%, 480px);
+    padding: 28px 24px 32px;
+    text-align: center;
+    background: rgba(255,255,255,.85);
+    border: 2px solid white;
+    border-radius: 32px;
+    box-shadow: 0 18px 65px #b84b7126;
+  }
+
+  .label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #b26983;
+  }
+
+  h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(28px, 7vw, 38px);
+    margin: 12px 0;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* A teddy drawn entirely with CSS */
+  .teddy {
+    position: relative;
+    width: 220px;
+    height: 240px;
+    margin: 22px auto 10px;
+    animation: sway 3s ease-in-out infinite;
+  }
+
+  @keyframes sway {
+    50% { transform: rotate(3deg) translateY(-4px); }
+  }
+
+  .ear {
+    position: absolute;
+    top: 12px;
+    width: 60px;
+    height: 60px;
+    background: #bc825b;
+    border: 8px solid #dba77a;
+    border-radius: 50%;
+  }
+
+  .ear.left { left: 27px; }
+  .ear.right { right: 27px; }
+
+  .body {
+    position: absolute;
+    top: 108px;
+    left: 48px;
+    width: 124px;
+    height: 122px;
+    border-radius: 48%;
+    background: #dba77a;
+    box-shadow: inset -9px -8px 0 #c38b6038;
+  }
+
+  .belly {
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    background: #f4d6b6;
+  }
+
+  .head {
+    position: absolute;
+    top: 28px;
+    left: 37px;
+    width: 146px;
+    height: 120px;
+    border-radius: 48%;
+    background: #dba77a;
+    box-shadow: inset -7px -6px 0 #c38b6038;
+  }
+
+  .eye {
+    position: absolute;
+    top: 43px;
+    width: 11px;
+    height: 14px;
+    background: #493026;
+    border-radius: 50%;
+  }
+
+  .eye::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: white;
+  }
+
+  .eye.left { left: 39px; }
+  .eye.right { right: 39px; }
+
+  .muzzle {
+    position: absolute;
+    left: 43px;
+    top: 60px;
+    width: 60px;
+    height: 44px;
+    border-radius: 50%;
+    background: #f4d6b6;
+  }
+
+  .nose {
+    position: absolute;
+    left: 21px;
+    top: 8px;
+    width: 18px;
+    height: 12px;
+    border-radius: 50% 50% 60% 60%;
+    background: #493026;
+  }
+
+  .smile {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 20px;
+    height: 12px;
+    border-bottom: 2px solid #493026;
+    border-radius: 50%;
+  }
+
+  .cheek {
+    position: absolute;
+    top: 65px;
+    width: 23px;
+    height: 13px;
+    border-radius: 50%;
+    background: #ef9a96;
+    opacity: .75;
+  }
+
+  .cheek.left { left: 18px; }
+  .cheek.right { right: 18px; }
+
+  .foot {
+    position: absolute;
+    bottom: 0;
+    width: 64px;
+    height: 51px;
+    border-radius: 50%;
+    background: #c99368;
+    border: 8px solid #dba77a;
+  }
+
+  .foot.left { left: 27px; transform: rotate(-15deg); }
+  .foot.right { right: 27px; transform: rotate(15deg); }
+.love-heart {
+    position: absolute;
+    top: 138px;
+    left: 72px;
+    width: 76px;
+    height: 69px;
+    display: grid;
+    place-items: center;
+    font-size: 67px;
+    line-height: 1;
+    filter: drop-shadow(0 4px 3px #a9315930);
+  }
+
+  .arm {
+    position: absolute;
+    top: 143px;
+    width: 43px;
+    height: 65px;
+    border-radius: 45%;
+    background: #dba77a;
+  }
+
+  .arm.left { left: 40px; transform: rotate(-35deg); }
+  .arm.right { right: 40px; transform: rotate(35deg); }
+
+  button {
+    margin-top: 15px;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 30px;
+    background: #df638e;
+    color: white;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 7px 20px #df638e35;
+    transition: transform .2s, background .2s;
+  }
+
+  button:hover {
+    transform: translateY(-3px);
+    background: #ca4a77;
+  }
+
+  button:focus-visible {
+    outline: 3px solid #713d50;
+    outline-offset: 5px;
+  }
+
+  .letter {
+    margin-top: 25px;
+    padding: 25px 20px;
+    background: #fffaf5;
+    border: 1px solid #eed8ce;
+    border-radius: 18px;
+    text-align: left;
+    animation: reveal .6s ease both;
+  }
+
+  .letter h2 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+    color: #b84e75;
+  }
+
+  .letter p {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    line-height: 1.85;
+  }
+
+  .signature {
+    text-align: right;
+    font-style: italic;
+    color: #b84e75;
+  }
+
+  .footer {
+    margin: 22px 0 0;
+    font-size: 12px;
+    color: #a57385;
+  }
+
+  [hidden] { display: none !important; }
+
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+
+    .floating {
+      bottom: auto;
+      opacity: .35;
+    }
+  }
+</style>
+</head>
+
+<body>
+<div class="background" id="background" aria-hidden="true"></div>
+
+<main class="card">
+  <p class="label">A little something, just for you</p>
+  <h1>Hey, My Love 💗</h1>
+
+  <div class="teddy" role="img" aria-label="A cute teddy bear holding a heart">
+    <div class="ear left"></div>
+    <div class="ear right"></div>
+    <div class="body"><div class="belly"></div></div>
+    <div class="foot left"></div>
+    <div class="foot right"></div>
+
+    <div class="head">
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="cheek left"></div>
+      <div class="cheek right"></div>
+      <div class="muzzle">
+        <div class="nose"></div>
+        <div class="smile"></div>
+      </div>
+    </div>
+
+    <div class="love-heart">❤️</div>
+    <div class="arm left"></div>
+    <div class="arm right"></div>
+  </div>
+
+  <p class="subtitle">
+    This little teddy has something for you.<br>
+    A small note with a whole lot of love. 💌
+  </p>
+
+  <button
+    id="openButton"
+    aria-expanded="false"
+    aria-controls="letter"
+    onclick="toggleLetter()">
+    Open your love note 💌
+  </button>
+
+  <section class="letter" id="letter" hidden>
+    <h2>To my favourite person,</h2>
+ <p>
+      I wish I could tuck a hug inside this little note,
+      so you could feel how much you mean to me.
+    </p>
+
+    <p>
+     Hey handsome, just wanted to say I miss you alot. Can't wait to see you again! ❤️" I love youu so much and  hope we cloud cuddle together
+ 
+      make me. Even an ordinary day feels special when
+      you're part of it.
+    </p>
+
+    <p>
+      I don't need every moment to be perfect. I just want
+      more of them with you: more laughs, more long talks,
+      and more memories we'll smile about later.
+    </p>
+
+    <p>
+      Until I can hold your hand again, this teddy is
+      sending you the biggest hug. 🧸💕
+    </p>
+
+    <p class="signature">
+      With all my love,<br>
+      Janvi ♡
+    </p>
+  </section>
+
+  <p class="footer">Made with love, and a tiny teddy hug 🐻</p>
+</main>
+
+<script>
+  const background = document.getElementById("background");
+  const symbols = ["♡", "💗", "💕", "🌸", "🤍"];
+
+  for (let i = 0; i < 18; i++) {
+    const heart = document.createElement("span");
+    heart.className = "floating";
+    heart.textContent = symbols[i % symbols.length];
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.top = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches ? Math.random() * 100 + "%" : "";
+    heart.style.fontSize = 18 + Math.random() * 20 + "px";
+    heart.style.animationDuration = 10 + Math.random() * 10 + "s";
+    heart.style.animationDelay = -Math.random() * 20 + "s";
+    background.appendChild(heart);
+  }
+
+  function toggleLetter() {
+    const letter = document.getElementById("letter");
+    const button = document.getElementById("openButton");
+    const opening = letter.hidden;
+
+    letter.hidden = !opening;
+    button.setAttribute("aria-expanded", String(opening));
+    button.textContent = opening
+      ? "Close the note 🧸"
+      : "Open Hipppo
+  
+
